@@ -1,7 +1,7 @@
 import { Category } from "../../data";
 import { ArrowButton } from "./ArrowButton";
 
-const Title = ({
+const Root = ({
   item,
   handleClick,
   showChildren,
@@ -15,11 +15,10 @@ const Title = ({
   setCategories: (item: Category[]) => void;
 }) => {
   const handleCheck = (item: Category) => {
-    console.log(item);
-
     const updateCategories = (categories: Category[]): Category[] => {
       return categories.map((category) => {
         if (category.id === item.id) {
+          setCheckedAllRecursively(item, !item.isChecked);
           return { ...category, isChecked: !item.isChecked };
         }
         if (category.subcategory) {
@@ -34,6 +33,19 @@ const Title = ({
 
     setCategories(updateCategories(categories));
   };
+
+  function setCheckedAllRecursively(
+    parentCategory: Category,
+    isChecked: boolean,
+    isRoot: boolean = true
+  ): void {
+    if (!isRoot) {
+      parentCategory.isChecked = isChecked;
+    }
+    parentCategory.subcategory.forEach((subcategory) => {
+      setCheckedAllRecursively(subcategory, isChecked, false);
+    });
+  }
 
   return (
     <span style={{ display: "flex", alignItems: "center" }}>
@@ -57,4 +69,4 @@ const Title = ({
   );
 };
 
-export default Title;
+export default Root;

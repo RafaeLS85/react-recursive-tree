@@ -5,7 +5,7 @@ export const SubCategory = ({ children }: { children: React.ReactNode }) => {
         position: "relative",
         display: "flex",
         flexDirection: "column",
-        left: 25,
+        marginLeft: "25px",
         paddingLeft: "15px",
         backgroundColor: "#686565",
         borderRadius: "16px",

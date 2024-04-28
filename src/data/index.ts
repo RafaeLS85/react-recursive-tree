@@ -5,7 +5,7 @@ export type Category = {
     parentId: number | null;
     count: number | null;
     subcategory: Category[];
-    isChecked?: boolean;
+    isChecked: boolean;
 }
 
 export const categories: Category[] = [

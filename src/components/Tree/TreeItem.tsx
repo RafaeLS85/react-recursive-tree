@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Category } from "../../data";
-import Title from "./Title";
+import Root from "./Root";
 import { SubCategory } from "./SubCategory";
 
 interface Props {
@@ -18,7 +18,7 @@ export default function TreeItem({ item, setCategories, categories }: Props) {
 
   return (
     <div style={{}}>
-      <Title
+      <Root
         handleClick={handleClick}
         item={item}
         showChildren={showChildren}
