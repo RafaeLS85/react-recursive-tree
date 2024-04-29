@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Category } from "../../data";
 import TreeItem from "./TreeItem";
 import "./TreeList.css"
+import { filterUserSelectedCategories } from "./utils";
 
 export const TreeList = ({list}: {list: Category[]}) => {  
   const [categories, setCategories] = useState(list);
@@ -12,7 +13,7 @@ export const TreeList = ({list}: {list: Category[]}) => {
           <TreeItem item={item} key={item.id} setCategories={setCategories} categories={categories}/>
         ))}
       </div>
-       <pre>{JSON.stringify(categories, null, 2)}</pre> 
+       <pre>{JSON.stringify(filterUserSelectedCategories(categories), null, 2)}</pre> 
     </main>
   );
 };

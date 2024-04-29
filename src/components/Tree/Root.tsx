@@ -1,5 +1,6 @@
 import { Category } from "../../data";
 import { ArrowButton } from "./ArrowButton";
+import { updateCategories } from "./utils";
 
 const Root = ({
   item,
@@ -15,37 +16,8 @@ const Root = ({
   setCategories: (item: Category[]) => void;
 }) => {
   const handleCheck = (item: Category) => {
-    const updateCategories = (categories: Category[]): Category[] => {
-      return categories.map((category) => {
-        if (category.id === item.id) {
-          setCheckedAllRecursively(item, !item.isChecked);
-          return { ...category, isChecked: !item.isChecked };
-        }
-        if (category.subcategory) {
-          return {
-            ...category,
-            subcategory: updateCategories(category.subcategory),
-          };
-        }
-        return category;
-      });
-    };
-
-    setCategories(updateCategories(categories));
-  };
-
-  function setCheckedAllRecursively(
-    parentCategory: Category,
-    isChecked: boolean,
-    isRoot: boolean = true
-  ): void {
-    if (!isRoot) {
-      parentCategory.isChecked = isChecked;
-    }
-    parentCategory.subcategory.forEach((subcategory) => {
-      setCheckedAllRecursively(subcategory, isChecked, false);
-    });
-  }
+    setCategories(updateCategories(categories, item));
+  }; 
 
   return (
     <span style={{ display: "flex", alignItems: "center" }}>
