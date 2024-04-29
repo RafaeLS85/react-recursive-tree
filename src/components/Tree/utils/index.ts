@@ -7,7 +7,7 @@ interface SelectedCategories {
 export function filterUserSelectedCategories(
   categories: Category[]
 ): SelectedCategories[] {
-  const selectedCategories: any[] = [];
+  const selectedCategories: SelectedCategories[] = [];
 
   categories.forEach((category) => {
     if (category.isChecked) {
