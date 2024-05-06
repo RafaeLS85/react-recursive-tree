@@ -1,30 +1,25 @@
 import { Category } from "../../data";
+import { UseCategoriesActions } from "../../hooks/useCategories";
 import { ArrowButton } from "./ArrowButton";
-import { updateCategories } from "./utils";
 
 const Root = ({
   item,
   handleClick,
   showChildren,
-  categories,
-  setCategories,
+  actions
 }: {
   item: Category;
   handleClick: () => void;
   showChildren: boolean;
-  categories: Category[];
-  setCategories: (item: Category[]) => void;
+  actions: UseCategoriesActions
 }) => {
-  const handleCheck = (item: Category) => {
-    setCategories(updateCategories(categories, item));
-  }; 
-
+  
   return (
     <span style={{ display: "flex", alignItems: "center" }}>
       <input
         type="checkbox"
         checked={item.isChecked}
-        onChange={() => handleCheck(item)}
+        onChange={() => actions.handleCheck(item)}
       />
       <h3
         onClick={handleClick}

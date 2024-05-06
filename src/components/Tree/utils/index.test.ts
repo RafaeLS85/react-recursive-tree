@@ -15,6 +15,7 @@ describe("filterUserSelectedCategories", () => {
         parentId: null,
         count: 3,
         isChecked: false,
+        showChildren: false,
         subcategory: [
           {
             id: 2,
@@ -22,6 +23,7 @@ describe("filterUserSelectedCategories", () => {
             parentId: 1,
             count: 3,
             isChecked: false,
+            showChildren: false,
             subcategory: [],
           },
         ],
@@ -39,6 +41,7 @@ describe("filterUserSelectedCategories", () => {
         parentId: null,
         count: 3,
         isChecked: true,
+        showChildren: false,
         subcategory: [
           {
             id: 2,
@@ -46,6 +49,7 @@ describe("filterUserSelectedCategories", () => {
             parentId: 1,
             count: 3,
             isChecked: true,
+            showChildren: false,
             subcategory: [
               {
                 id: 3,
@@ -53,6 +57,7 @@ describe("filterUserSelectedCategories", () => {
                 parentId: 2,
                 count: 3,
                 isChecked: true,
+                showChildren: false,
                 subcategory: [],
               },
             ],
@@ -72,6 +77,7 @@ describe("filterUserSelectedCategories", () => {
         parentId: null,
         count: 3,
         isChecked: false,
+        showChildren: false,
         subcategory: [
           {
             id: 2,
@@ -79,6 +85,7 @@ describe("filterUserSelectedCategories", () => {
             parentId: 1,
             count: 3,
             isChecked: false,
+            showChildren: false,
             subcategory: [
               {
                 id: 3,
@@ -86,6 +93,7 @@ describe("filterUserSelectedCategories", () => {
                 parentId: 2,
                 count: 3,
                 isChecked: true,
+                showChildren: false,
                 subcategory: [],
               },
             ],
@@ -108,6 +116,7 @@ describe("setCheckedAllRecursively", () => {
       parentId: null,
       count: 3,
       isChecked: false,
+      showChildren: false,
       subcategory: [],
     };
 
@@ -123,6 +132,7 @@ describe("setCheckedAllRecursively", () => {
       parentId: null,
       count: 3,
       isChecked: false,
+      showChildren: false,
       subcategory: [
         {
           id: 2,
@@ -130,6 +140,7 @@ describe("setCheckedAllRecursively", () => {
           parentId: 1,
           count: 3,
           isChecked: false,
+          showChildren: false,
           subcategory: [],
         },
       ],
@@ -150,6 +161,7 @@ describe("updateCategories", () => {
         parentId: null,
         count: 1,
         isChecked: true,
+        showChildren: false,
         subcategory: [],
       },
     ];

@@ -6,15 +6,17 @@ export type Category = {
     count: number | null;
     subcategory: Category[];
     isChecked: boolean;
+    showChildren: boolean;
 }
 
-export const categories: Category[] = [
+export const categoriesData: Category[] = [
     {
       id: 1,
       label: "Fruits",
       parentId: null,
       count: 3,
       isChecked: false,
+      showChildren: false,
       subcategory: [
         {
           id: 11,
@@ -22,6 +24,7 @@ export const categories: Category[] = [
           parentId: 1,
           count: 2,
           isChecked: false,
+          showChildren: false,
           subcategory: [
             {
               id: 111,
@@ -29,6 +32,7 @@ export const categories: Category[] = [
               parentId: 11,
               count: null,
               isChecked: false,
+              showChildren: false,
               subcategory: [],
             },
             {
@@ -37,6 +41,7 @@ export const categories: Category[] = [
               parentId: 11,
               count: null,
               isChecked: false,
+              showChildren: false,
               subcategory: [],
             }
           ],
@@ -47,6 +52,7 @@ export const categories: Category[] = [
           parentId: 1,
           count: 1,
           isChecked: false,
+          showChildren: false,
           subcategory: [
             {
               id: 121,
@@ -54,6 +60,7 @@ export const categories: Category[] = [
               parentId: 12,
               count: null,
               isChecked: false,
+              showChildren: false,
               subcategory: [],
             }
           ],
@@ -64,6 +71,7 @@ export const categories: Category[] = [
           parentId: 1,
           count: null,
           isChecked: false,
+          showChildren: false,
           subcategory: [],
         },
       ],
@@ -74,6 +82,7 @@ export const categories: Category[] = [
       parentId: null,
       count: 3,
       isChecked: false,
+      showChildren: false,
       subcategory: [
         {
           id: 21,
@@ -81,6 +90,7 @@ export const categories: Category[] = [
           parentId: 2,
           count: null,
           isChecked: false,
+          showChildren: false,
           subcategory: [],
         },
         {
@@ -89,6 +99,7 @@ export const categories: Category[] = [
           parentId: 2,
           count: null,
           isChecked: false,
+          showChildren: false,
           subcategory: [],
         },
         {
@@ -97,6 +108,7 @@ export const categories: Category[] = [
           parentId: 2,
           count: null,
           isChecked: false,
+          showChildren: false,
           subcategory: [],
         },
       ],
@@ -107,6 +119,7 @@ export const categories: Category[] = [
       parentId: null,
       count: 3,
       isChecked: false,
+      showChildren: false,
       subcategory: [
         {
           id: 31,
@@ -114,6 +127,7 @@ export const categories: Category[] = [
           parentId: 3,
           count: null,
           isChecked: false,
+          showChildren: false,
           subcategory: [],
         },
         {
@@ -122,6 +136,7 @@ export const categories: Category[] = [
           parentId: 3,
           count: 1,
           isChecked: false,
+          showChildren: false,
           subcategory: [
             {
               id: 321,
@@ -129,6 +144,7 @@ export const categories: Category[] = [
               parentId: 32,
               count: 1,
               isChecked: false,
+              showChildren: false,
               subcategory: [
                 {
                   id: 3211,
@@ -136,6 +152,7 @@ export const categories: Category[] = [
                   parentId: 321,
                   count: null,
                   isChecked: false,
+                  showChildren: false,
                   subcategory: [],
                 }
               ],
@@ -148,8 +165,54 @@ export const categories: Category[] = [
           parentId: 3,
           count: null,
           isChecked: false,
+          showChildren: false,
           subcategory: [],
         },
       ],
     },   
   ];
+
+[
+  {
+    id: 3,
+    label: "Animals",
+    parentId: null,
+    count: 3,
+    isChecked: false,
+    showChildren: false,
+    subcategory: [     
+      {
+        id: 32,
+        label: "Dogs",
+        parentId: 3,
+        count: 1,
+        isChecked: false,
+        showChildren: false,
+        subcategory: [
+          {
+            id: 321,
+            label: "Puppies",
+            parentId: 32,
+            count: 1,
+            isChecked: false,
+            showChildren: false,
+            subcategory: [
+              {
+                id: 3211,
+                label: "Golden Retrievers",
+                parentId: 321,
+                count: null,
+                isChecked: false,
+                showChildren: false,
+                subcategory: [],
+              }
+            ],
+          }
+        ],
+      },     
+    ],
+  },   
+
+]
+
+  
