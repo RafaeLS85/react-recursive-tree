@@ -1,39 +1,35 @@
-import { Category } from "../../data";
+
+import { UseCategoriesActions } from "../../hooks/useCategories";
+import { Category } from "../../types/categories";
 import { ArrowButton } from "./ArrowButton";
-import { updateCategories } from "./utils";
 
 const Root = ({
   item,
   handleClick,
   showChildren,
-  categories,
-  setCategories,
+  actions
 }: {
   item: Category;
   handleClick: () => void;
   showChildren: boolean;
-  categories: Category[];
-  setCategories: (item: Category[]) => void;
+  actions: UseCategoriesActions
 }) => {
-  const handleCheck = (item: Category) => {
-    setCategories(updateCategories(categories, item));
-  }; 
-
+  
   return (
     <span style={{ display: "flex", alignItems: "center" }}>
       <input
         type="checkbox"
         checked={item.isChecked}
-        onChange={() => handleCheck(item)}
+        onChange={() => actions.handleCheck(item)}
       />
       <h3
         onClick={handleClick}
-        style={{ cursor: item.count !== null ? "pointer" : "default" }}
+        style={{ cursor: item.subcategory.length !== 0 ? "pointer" : "default" }}
       >
         <span
           style={{ fontWeight: item.parentId === null ? "bold" : "normal" }}
         >
-          {item.label} {item.count !== null ? `(${item.count})` : ""}
+          {item.label} { item.subcategory.length !== 0 ? `(${item.subcategory.length})` : ""}
         </span>
         <ArrowButton show={showChildren} item={item} />
       </h3>

@@ -1,19 +1,21 @@
-import { useState } from "react";
-import { Category } from "../../data";
+import { UseCategoriesActions, UseCategoriesState } from "../../hooks/useCategories";
 import TreeItem from "./TreeItem";
 import "./TreeList.css"
-import { filterUserSelectedCategories } from "./utils";
 
-export const TreeList = ({list}: {list: Category[]}) => {  
-  const [categories, setCategories] = useState(list);
+interface Props{
+  state: UseCategoriesState
+  actions: UseCategoriesActions
+}
+export const TreeList = ({state, actions}: Props) => {  
+  
   return (
     <main style={{ display: "flex", flexDirection: "row" }}>
       <div className="container">
-        {categories.map((item) => (
-          <TreeItem item={item} key={item.id} setCategories={setCategories} categories={categories}/>
+        {state.categories.map((item) => (          
+          <TreeItem item={item} key={item.id + Math.random()} state={state} actions={actions} />
         ))}
       </div>
-       <pre>{JSON.stringify(filterUserSelectedCategories(categories), null, 2)}</pre> 
+       {/* <pre>{JSON.stringify(filterUserSelectedCategories(categories), null, 2)}</pre>  */}
     </main>
   );
 };

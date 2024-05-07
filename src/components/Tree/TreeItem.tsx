@@ -1,38 +1,37 @@
-import { useState } from "react";
-import { Category } from "../../data";
 import Root from "./Root";
 import { SubCategory } from "./SubCategory";
+import { UseCategoriesActions, UseCategoriesState } from "../../hooks/useCategories";
+import { Category } from "../../types/categories";
+
 
 interface Props {
   item: Category;
-  setCategories: (categories: Category[]) => void;
-  categories: Category[];
+  state: UseCategoriesState;
+  actions: UseCategoriesActions;
 }
-
-export default function TreeItem({ item, setCategories, categories }: Props) {
-  const [showChildren, setShowChildren] = useState(false);
-
-  const handleClick = () => {
-    setShowChildren(!showChildren);
-  };
-
+export default function TreeItem({ 
+  item, 
+  actions,
+  state }: Props) { 
+ 
+  
   return (
     <div style={{}}>
+      {/* {JSON.stringify(item)} */}
       <Root
-        handleClick={handleClick}
+        handleClick={() => actions.handleClick(item)}
         item={item}
-        showChildren={showChildren}
-        setCategories={setCategories}
-        categories={categories}
+        showChildren={item.showChildren}
+        actions={actions}
       />
       <SubCategory>
-        {showChildren &&
-          item.subcategory.map((category) => (
+        {item.showChildren &&
+          item.subcategory.map((category: Category) => (
             <TreeItem
               item={category}
-              key={category.id}
-              setCategories={setCategories}
-              categories={categories}
+              key={category.id + Math.random()}
+              state={state}
+              actions={actions}
             />
           ))}
       </SubCategory>

@@ -1,12 +1,26 @@
 import "./App.css";
 import { TreeList } from "./components/Tree/TreeList";
-import { categories } from "./data";
+import { useCategories } from "./hooks/useCategories";
 
-function App() {  
+function App() { 
+
+  const {state, actions} = useCategories();
+
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "column", gap: "1rem", padding: "4rem" }}>
       <h1>Recursive Tree</h1>
-      <TreeList list={categories} />
+
+      <input 
+        type="search" 
+        id="search-categories" 
+        placeholder="Search categories"
+        onChange={actions.handleSearch} 
+        value={state.searchTerm}
+      />
+
+      {!state.categories && <p>Loading...</p>}      
+      {state.categories && <TreeList state={state} actions={actions} />}
+
     </div>
   );
 }
