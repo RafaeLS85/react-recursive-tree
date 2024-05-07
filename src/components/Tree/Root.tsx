@@ -1,5 +1,6 @@
-import { Category } from "../../data";
+
 import { UseCategoriesActions } from "../../hooks/useCategories";
+import { Category } from "../../types/categories";
 import { ArrowButton } from "./ArrowButton";
 
 const Root = ({
@@ -23,12 +24,12 @@ const Root = ({
       />
       <h3
         onClick={handleClick}
-        style={{ cursor: item.count !== null ? "pointer" : "default" }}
+        style={{ cursor: item.subcategory.length !== 0 ? "pointer" : "default" }}
       >
         <span
           style={{ fontWeight: item.parentId === null ? "bold" : "normal" }}
         >
-          {item.label} {item.count !== null ? `(${item.count})` : ""}
+          {item.label} { item.subcategory.length !== 0 ? `(${item.subcategory.length})` : ""}
         </span>
         <ArrowButton show={showChildren} item={item} />
       </h3>

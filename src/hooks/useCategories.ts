@@ -1,35 +1,27 @@
 import { useEffect, useState } from "react";
-import { Category, categoriesData } from "../data";
-import {
-  SelectedCategories,
-  mapAllCategoriesToSingleArray, 
-  searchSubCategory,
+import { categoriesData } from "../data";
+import {  
+  filterNestedCategory,
+  mapAllCategoriesToSingleArray,  
   toggleCategoryShowChildren,
   updateCategories,
 } from "../components/Tree/utils";
+import { Category, SelectedCategories } from "../types/categories";
 
 export const useCategories = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [options, setOptions] = useState<SelectedCategories[]>();
-  const [searchResult, setSearchResult] = useState<Category>()
+  const [options, setOptions] = useState<SelectedCategories[]>();  
 
   const handleClick = (item: Category) => {
     setCategories(toggleCategoryShowChildren(categories, item))
   };
 
-  const getCategories = ({ search }: { search: string }) => {
-    // console.log("search: ", search)
-    
-    if(search !== ""){
-        const filteredSubCategories = searchSubCategory(search, categoriesData);
-        setSearchResult(filteredSubCategories[0])
-        // const root = findRootNode(categoriesData, filteredSubCategories[0])        
-        // setShowChildrenOnSearchResult(root, search)
-        
+  const getCategories = ({ search }: { search: string }) => {    
+    if(search !== ""){       
+        const filteredSubCategories = filterNestedCategory(categoriesData, {name: search});        
         setCategories(filteredSubCategories);
-    }else{
-        setSearchResult(undefined)
+    }else{       
         setCategories(categoriesData);
     }
   };
@@ -55,8 +47,7 @@ export const useCategories = () => {
     state: {
       categories,
       searchTerm,
-      options,
-      searchResult,
+      options,      
     },
     actions: {
       handleSearch,
@@ -69,7 +60,6 @@ export const useCategories = () => {
 export type UseCategoriesState = {
   categories: Category[];
   searchTerm: string;
-  searchResult: Category | undefined;
 };
 
 export type UseCategoriesActions = {

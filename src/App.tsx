@@ -7,7 +7,7 @@ function App() {
   const {state, actions} = useCategories();
 
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "column", gap: "1rem", padding: "4rem" }}>
       <h1>Recursive Tree</h1>
 
       <input 

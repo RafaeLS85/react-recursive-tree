@@ -1,8 +1,8 @@
-import { Category } from "../../data";
 import Root from "./Root";
 import { SubCategory } from "./SubCategory";
 import { UseCategoriesActions, UseCategoriesState } from "../../hooks/useCategories";
-import { useEffect } from "react";
+import { Category } from "../../types/categories";
+
 
 interface Props {
   item: Category;
@@ -12,11 +12,8 @@ interface Props {
 export default function TreeItem({ 
   item, 
   actions,
-  state }: Props) {
-  
-  useEffect(() => {    
-    console.log("searchResult: ", state.searchResult)
-  }, [state.searchResult])
+  state }: Props) { 
+ 
   
   return (
     <div style={{}}>
@@ -29,10 +26,10 @@ export default function TreeItem({
       />
       <SubCategory>
         {item.showChildren &&
-          item.subcategory.map((category) => (
+          item.subcategory.map((category: Category) => (
             <TreeItem
               item={category}
-              key={category.id}
+              key={category.id + Math.random()}
               state={state}
               actions={actions}
             />

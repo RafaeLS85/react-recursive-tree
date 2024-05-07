@@ -1,45 +1,32 @@
-
-export type Category = {
-    id: number;
-    label: string;
-    parentId: number | null;
-    count: number | null;
-    subcategory: Category[];
-    isChecked: boolean;
-    showChildren: boolean;
-}
+import { Category } from "../types/categories";
 
 export const categoriesData: Category[] = [
     {
-      id: 1,
+      id: "1",
       label: "Fruits",
       parentId: null,
-      count: 3,
       isChecked: false,
       showChildren: false,
       subcategory: [
         {
-          id: 11,
+          id: "11",
           label: "Apples",
-          parentId: 1,
-          count: 2,
+          parentId: "1",
           isChecked: false,
           showChildren: false,
           subcategory: [
             {
-              id: 111,
+              id: "111",
               label: "Red",
-              parentId: 11,
-              count: null,
+              parentId: "11",
               isChecked: false,
               showChildren: false,
               subcategory: [],
             },
             {
-              id: 112,
+              id: "112",
               label: "Green",
-              parentId: 11,
-              count: null,
+              parentId: "11",
               isChecked: false,
               showChildren: false,
               subcategory: [],
@@ -47,18 +34,16 @@ export const categoriesData: Category[] = [
           ],
         },
         {
-          id: 12,
+          id: "12",
           label: "Bananas",
-          parentId: 1,
-          count: 1,
+          parentId: "1",
           isChecked: false,
           showChildren: false,
           subcategory: [
             {
-              id: 121,
+              id: "121",
               label: "Yellow",
-              parentId: 12,
-              count: null,
+              parentId: "12",            
               isChecked: false,
               showChildren: false,
               subcategory: [],
@@ -66,10 +51,9 @@ export const categoriesData: Category[] = [
           ],
         },
         {
-          id: 13,
+          id: "13",
           label: "Oranges",
-          parentId: 1,
-          count: null,
+          parentId: "1",          
           isChecked: false,
           showChildren: false,
           subcategory: [],
@@ -77,36 +61,32 @@ export const categoriesData: Category[] = [
       ],
     },
     {
-      id: 2,
+      id: "2",
       label: "Vegetables",
-      parentId: null,
-      count: 3,
+      parentId: null,     
       isChecked: false,
       showChildren: false,
       subcategory: [
         {
-          id: 21,
+          id: "21",
           label: "Carrots",
-          parentId: 2,
-          count: null,
+          parentId: "2",          
           isChecked: false,
           showChildren: false,
           subcategory: [],
         },
         {
-          id: 22,
+          id: "22",
           label: "Broccoli",
-          parentId: 2,
-          count: null,
+          parentId: "2",         
           isChecked: false,
           showChildren: false,
           subcategory: [],
         },
         {
-          id: 23,
+          id: "23",
           label: "Spinach",
-          parentId: 2,
-          count: null,
+          parentId: "2",        
           isChecked: false,
           showChildren: false,
           subcategory: [],
@@ -114,43 +94,38 @@ export const categoriesData: Category[] = [
       ],
     },
     {
-      id: 3,
+      id: "3",
       label: "Animals",
-      parentId: null,
-      count: 3,
+      parentId: null,     
       isChecked: false,
       showChildren: false,
       subcategory: [
         {
-          id: 31,
+          id: "31",
           label: "Cats",
-          parentId: 3,
-          count: null,
+          parentId: "3",        
           isChecked: false,
           showChildren: false,
           subcategory: [],
         },
         {
-          id: 32,
+          id: "32",
           label: "Dogs",
-          parentId: 3,
-          count: 1,
+          parentId: "3",         
           isChecked: false,
           showChildren: false,
           subcategory: [
             {
-              id: 321,
+              id: "321",
               label: "Puppies",
-              parentId: 32,
-              count: 1,
+              parentId: "32",             
               isChecked: false,
               showChildren: false,
               subcategory: [
                 {
-                  id: 3211,
+                  id: "3211",
                   label: "Golden Retrievers",
-                  parentId: 321,
-                  count: null,
+                  parentId: "321",                  
                   isChecked: false,
                   showChildren: false,
                   subcategory: [],
@@ -160,10 +135,9 @@ export const categoriesData: Category[] = [
           ],
         },
         {
-          id: 33,
+          id: "33",
           label: "Birds",
-          parentId: 3,
-          count: null,
+          parentId: "3",         
           isChecked: false,
           showChildren: false,
           subcategory: [],
@@ -172,47 +146,5 @@ export const categoriesData: Category[] = [
     },   
   ];
 
-[
-  {
-    id: 3,
-    label: "Animals",
-    parentId: null,
-    count: 3,
-    isChecked: false,
-    showChildren: false,
-    subcategory: [     
-      {
-        id: 32,
-        label: "Dogs",
-        parentId: 3,
-        count: 1,
-        isChecked: false,
-        showChildren: false,
-        subcategory: [
-          {
-            id: 321,
-            label: "Puppies",
-            parentId: 32,
-            count: 1,
-            isChecked: false,
-            showChildren: false,
-            subcategory: [
-              {
-                id: 3211,
-                label: "Golden Retrievers",
-                parentId: 321,
-                count: null,
-                isChecked: false,
-                showChildren: false,
-                subcategory: [],
-              }
-            ],
-          }
-        ],
-      },     
-    ],
-  },   
-
-]
 
   

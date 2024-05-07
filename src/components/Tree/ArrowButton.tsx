@@ -1,5 +1,5 @@
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
-import { Category } from "../../data";
+import { Category } from "../../types/categories";
 
 export const ArrowButton = ({
   show,
